@@ -1,4 +1,9 @@
 ### Django ###
 local_settings.py
+*.pyc
 env
 
+
+### Front-end ###
+package-lock.json
+node_modules

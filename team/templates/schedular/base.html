@@ -1,0 +1,44 @@
+{% load staticfiles i18n %}
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible"
+              content="IE=edge">
+        <title>Base shit title </title>
+        <meta name="viewport"
+              content="width=device-width, initial-scale=1">
+        <link rel="stylesheet"
+              type="text/css"
+              media="screen"
+              href="{% static '/bootstrap/dist/css/bootstrap.css' %}" />
+        <link rel="stylesheet"
+              type="text/css"
+              media="screen"
+              href="{% static 'css/main.css' %}" />
+
+    </head>
+
+    <body>
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+
+                    <img alt="Brand"
+                         class="img-responsive"
+                         src="{% static 'images/logo.png' %}"
+                         width="300px"
+                         height="100px">
+                </div>
+            </div>
+        </nav>
+        {% block main_content %} {% endblock %}
+
+
+        <script src="{% static '/jquery/dist/jquery.js' %}"></script>
+        <script src="{% static '/bootstrap/dist/js/bootstrap.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+    </body>
+
+</html>

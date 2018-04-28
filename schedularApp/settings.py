@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'team'
 ]
 
 MIDDLEWARE = [
@@ -117,8 +118,18 @@ USE_L10N = True
 
 USE_TZ = True
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'node_modules'),
+    os.path.join(BASE_DIR, 'team/assets')
+)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
 
-STATIC_URL = '/static/'
+
+STATIC_URL = '/assets/'
+
+try:
+    from local_settings import *
+except:
+    pass
