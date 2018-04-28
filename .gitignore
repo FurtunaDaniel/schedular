@@ -1,10 +1,9 @@
 ### Django ###
 local_settings.py
 *.pyc
-../*.pyc
 env
+
+
+### Front-end ###
 package-lock.json
-./node_modules/**/**.**
-team/__pycache__/*.pyc
-schedularApp/__pycache__/*.pyc
 node_modules
