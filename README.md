@@ -3,6 +3,10 @@ TWA-Project
 
 ### WIP Team ####
 
+### Schedular Prototype Design ###
+ https://invis.io/KFHPP263PN9#/294229274_LoginForm 
+*^Click/hover over clickable elements to see the application workflow.^
+
 ### How do I get set up? ###
 * First of all please install git, and clone this project If you don't know how please give up! Kaufland hires all the time.
 
