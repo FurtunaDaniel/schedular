@@ -1,0 +1,61 @@
+{% load i18n staticfiles %}
+
+{% if user.is_authenticated %}
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navigation" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'home' %}">Platforma studenti</a>
+        </div>
+        <div class="collapse navbar-collapse" id="navigation">
+                <ul class="nav navbar-nav">
+          {% if user.is_student %}
+              <li class="student-option"><a href="{% url 'users:student_details' %}">Profilul meu</a></li>
+              <li class="student-option"><a href="{% url 'users:search_student' %}">Cauta un coleg</a></li>
+          {% endif %}
+          {% if user.is_teacher %}
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Student<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'users:addstudents' %}">Add Student</a></li>
+                  <li><a href="{% url 'users:list-students' %}">List all students</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Teacher<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="{% url 'users:add-teacher' %}">Add a teacher</a>
+                  </li>
+                  <li>
+                    <a href="{% url 'users:get_teacher' %}">List all teachers</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li><a href="{% url 'users:students' %}">Statistics</a></li>
+          {% endif %}
+            
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{user.email}} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            {% if user.is_teacher %}
+              <li>
+                <li><a href="">My Profile</a></li>
+              </li>
+            {% endif %}
+            <li><a href="{% url 'users:logout' %}">{% trans 'Logout' %}</a></li>
+          </ul>
+        </li>
+        </ul>
+        </div>
+      </div>
+    </nav>
+{% endif %}

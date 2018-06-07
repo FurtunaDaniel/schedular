@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load i18n staticfiles  static %}
+{% block title %}{% trans "Login" %}{% endblock title %}
+{% block body-class %}background_login{% endblock %}
+{% block header %}
+    <header class="navigation-bar__login">
+        <span>Schedular</span>
+    </header>
+{% endblock header %}
+{% block container %}
+    <div class="container">
+        <div class="login-page">
+            <div class ="login-page__title" >Login</div>
+            <form method="post" class="login-page__form-signin">
+                
+                {% csrf_token %}
+                <div class="login-page__inputs">
+                    <div class="login__input-field">
+                    <label class="login__input-label">E-mail</label>
+                    {{ form.username }}
+                    </div>
+                    <div class="login__input-field">
+                    <label class="login__input-label">Password</label>
+                    {{ form.password }}
+                    </div>
+                    <div class="login-controls">
+                        <button class="btn btn-primary btn-slide btn-slide--lg login-page__btn" type="submit">
+                            {% trans "Login" %}
+                        </button>
+                        <a href="" class="login-page__forgot">
+                            {% trans "Forgot password?" %}
+                        </a>                        
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock container %}

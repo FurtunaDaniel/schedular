@@ -10,22 +10,15 @@ TWA-Project
 ### How do I get set up? ###
 * First of all please install git, and clone this project If you don't know how please give up! Kaufland hires all the time.
 
-* Install python3
+* Install python
 ```
 $ sudo apt-get update
-$ sudo apt-get install python3.6
-  python3 -V (It say Python 3.5.1+ I have no Idea what it means... )
-```
-* Install pipe3 (for python3)
-
-```
-sudo apt-get -y install python3-pip
+$ sudo apt upgrade
+$ sudo apt install python2.7 python-pip
 ```
 
-* Then install virtualenv using pip3
-
-```
-pip3 install virtualenv (if not working try with sudo)
+* Install virtualenv
+pip install virtualenv (if not working try with sudo)
 ```
 
 * Now create a virtual environment
@@ -54,7 +47,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'schedular',
         'USER': 'root',
-        'PASSWORD': 'daniel',
+        'PASSWORD': 'test123',
         'HOST': '',
         'PORT': '',
     }
@@ -64,7 +57,7 @@ Please use your crdential and database!!!
 
 cd schedularApp/ and run:
 ```
-python3 manage.py migrate
+python manage.py migrate
 ```
 
 * Install requirements
@@ -75,7 +68,7 @@ pip install -r requirments.txt  # to install requrements (some of them might not
 
 * Run Server
 ```
-python3 manage.py runserver
+python manage.py runserver
 ```
 If in your console doesn't appear:
 ```

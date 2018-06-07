@@ -1,0 +1,31 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Update email</title>
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+  </head>
+  <body style="font-family: 'Roboto', sans-serif; font-weight: 300; font-size: 16px; color: #777;">
+    <div style="background-color: #ECECEC; width: 600px; margin: 0 auto;">
+        <div style=" text-align: center;"><br>
+        <h2 style="margin: 8px 0 15px 0; font-size: 18px;">
+          Hello there {% if user.first_name %} {{ user.first_name }} {{ user.last_name }} {% endif %}
+           - {{ user.email }}
+        </h2>
+        <h5 style="  margin:3px 0; font-size: 17px">
+          You have been requested to update you account!
+        </h5>
+        <h5 style="  margin:3px 0; font-size: 17px">
+          Please click on the following link to complete your profile
+        </h5>
+        <a style=" color:#FFA200; font-size: 22px; cursor: pointer; text-decoration: none; display: block; margin: 10px 0 15px;" href="{{ link }}">Click here!</a><br>
+        </div>
+    </div>
+  </body>
+</html>

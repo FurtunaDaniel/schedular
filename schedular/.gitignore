@@ -1,0 +1,13 @@
+### Django ###
+*.log
+*.pot
+*.pyc
+local_settings.py
+afm/local_settings.py
+*.mo
+virtual_env
+env
+node_modules
+dist
+npm-debug.log
+requirements.txt

@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+{% block body-class %}{% endblock %}
+
+{% block container %}
+  <div class="main-page">
+    <div class="table-responsive">
+      <table class="table table-condensed table-striped">
+        <tr>
+          <th>First name</th>
+          <th>Last name</th> 
+          <th>Personal Email</th>
+          <th>Address</th>
+          <th>Personal Phone number</th>
+          <th>Edit</th>
+        </tr>
+        {% for student in students%}
+          <tr>
+            <td>{{student.first_name}}</td>
+            <td>{{student.last_name}}</td>
+            <td>{{student.email}}</td>
+            <td>{{student.address}}</td>
+            <td>{{student.phone_number}}</td>
+            <td><a href="{% url 'users:edit-user' student.pk %}">Edit</a></td>
+          </tr>
+        {% empty %}
+          <tr><td colspan="5">{% trans 'No students' %}</td></tr>
+        {% endfor %}
+      </table>
+    </div>  
+  </div>
+{% endblock container %}
+

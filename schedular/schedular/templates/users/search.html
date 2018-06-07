@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% load staticfiles i18n %}
+
+{% block body-class %}{% endblock %}
+{% block container %}
+    <h3>{{ request.user.first_name }} {{ request.user.last_name }} ({{ request.user.email }})<h3>
+    <form method="post" id="searchForm" class="search-student">
+    <label>Student name:</label>
+        {% csrf_token %}
+        {{ form.search }}
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    <div id="search_result"></div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+          </tr>
+        </thead>
+        {% for s in students %}
+          <tr>
+            <td>
+              {{ s.first_name }} {{ s.last_name }}
+            </td>
+            <td>
+              {{ s.email }}
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+{% endblock container %}
+
+{% block wfooter %} {% endblock wfooter %}
+
