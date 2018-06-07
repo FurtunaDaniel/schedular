@@ -4,7 +4,7 @@ TWA-Project
 ### WIP Team ####
 
 ### Schedular Prototype Design ###
- https://invis.io/KFHPP263PN9#/294229274_LoginForm 
+ https://invis.io/KFHPP263PN9#/294229274_LoginForm
 *^Click/hover over clickable elements to see the application workflow.^
 
 ### How do I get set up? ###
@@ -38,6 +38,11 @@ virtualenv env (can be used any name instead of env)
 
 ```
 source env/bin/activate
+```
+
+* Install mysql
+```
+https://www.digitalocean.com/community/tutorials/how-to-install-mysql-on-ubuntu-16-04/
 ```
 
 * Should be created a dabates that is configured in schedularApp/settings.py
