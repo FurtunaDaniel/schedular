@@ -11,3 +11,4 @@ node_modules
 dist
 npm-debug.log
 requirements.txt
+users/migrations/*.py
