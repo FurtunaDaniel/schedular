@@ -1,0 +1,43 @@
+.navbar {
+	font-size: 14px;
+	background: #01579B;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+	width: 100%;
+	border-radius: 0;
+	border: 0;
+	box-shadow: 0 1px 1px rgba(0, 0, 0, .2);
+}
+.navbar .navbar-brand {
+	color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	color: rgba(255, 255, 255, .7);
+}
+
+.navbar .navbar-brand:hover {
+	color: rgba(255, 255, 255, .7);
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+	color: #fff;
+}
+
+.navbar-inverse .navbar-nav > li.active > a,
+.navbar-inverse .navbar-nav > .open > a {
+	color: rgba(255, 255, 255, .7);
+	background: #0277BD;
+}
+
+.navbar-inverse .navbar-nav > li.active > a:hover,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+	color: #fff;
+	background: #0277BD;
+}
+
+.navbar .container {
+	max-width: 1000px;
+}
