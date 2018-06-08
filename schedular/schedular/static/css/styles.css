@@ -952,3 +952,152 @@ select.selectpicker {
   float: none;
 }
 
+/*NAVBAR*/
+
+.navbar {
+  background-color: #1e3d7f !important;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-logo{
+  background-image: url('https://image.ibb.co/he3m3T/logo_usv.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 200px;
+  height: 80px;
+}
+
+.navbar .container {
+  max-width: 1280px !important;
+}
+
+
+.navbar-brand {
+  color: #fff !important;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #fff !important;
+  font-size: 18px;
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+  background-color: #132f6a !important;
+}
+
+.caret {
+  margin-left: 6px !important;
+  border-top: 8px dashed !important;
+  border-right: 8px solid transparent !important;
+  border-left: 8px solid transparent !important;
+}
+
+.dropdown-menu {
+  padding: 10px 0 !important;
+  border-radius: 5px !important;
+}
+
+.dropdown-menu>li>a {
+  font-size: 15px !important;
+}
+
+
+.page {
+  margin: 80px 0 0 !important;
+}
+
+#foot {
+  background-color: #1e3d7f !important;
+}
+
+/*NAVBAR LOGIN*/
+
+.navigation-bar__login {
+  background-color: #1e3d7f !important;
+}
+
+.navigation-login__wrapper {
+  display: flex;
+  flex-direction: row;
+  max-width: 1000px;
+  align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.navigation-login__wrapper h1:before {
+  display: inline-block;
+  width: 2px;
+  height: 60px;
+  content: "";
+  background-color: #fff;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+
+.login-page  {
+    box-shadow: 0 0 25px #777 !important;
+}
+
+.login-page__title {
+  text-align: center;
+  font-weight: bold;
+  color: #4e588d;
+}
+
+.login-page__form-signin {
+    max-width: 350px !important;
+    width: 100%;
+}
+
+.login__input-field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.form-control {
+  width: 70% !important;
+}
+
+.login-page__btn {
+  background-color: #fff !important;
+  border-color: #333 !important;
+  color: #333 !important;
+}
+
+/*Logged in */
+
+.form-horizontal {
+  width: 500px !important;
+
+}
+
+.btn-success {
+  background-color: #488bc0 !important;
+  border-color: #1e3d7f !important;
+}
+
+/*FOOTER*/
+
+.container-footer {
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 500px) {
+  .container-footer  {
+    flex-direction: column;
+  }
+}
