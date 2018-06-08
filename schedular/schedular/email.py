@@ -5,7 +5,7 @@ from .settings import EMAIL_HOST_USER
 
 def send_email(subject, receiver, email_template_name, context={}):
     html_content = loader.render_to_string(email_template_name, context)
-    import ipdb; ipdb.set_trace()
+    import ipdb;
     if not receiver:
         return
 
