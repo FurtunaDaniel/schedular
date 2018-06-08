@@ -1,0 +1,81 @@
+.background_login {
+    background: #f1f1f1;
+}
+
+input:-webkit-autofill {
+    background-color: red !important;
+}
+
+.background_login .container {
+    max-width: 600px;
+}
+
+.login-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 400px;
+    max-width: 600px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.login-page__form-signin {
+    max-width: 260px;
+    width: 100%;
+}
+
+.login-page__form-signin .form-control {
+    border: 1px solid #ddd;
+    box-shadow: none;
+    outline: 0;
+    border-radius: 2px;
+    margin-bottom: 5px;
+}
+
+.login-page__form-signin .form-control:focus {
+    border-color: #000;
+    outline: 0;
+    box-shadow: none;
+}
+
+.login-page__title {
+    max-width: 275px;
+    width: 100%;
+    font-size: 24px;
+    padding-bottom: 30px;
+}
+
+.login__input-field:nth-child(2) {
+  margin-top: 20px;
+}
+.login-controls {
+    margin-top: 30px;
+}
+
+.login-page__forgot {
+    float: right;
+    margin-top: 7px;
+}
+
+.login-page__btn {
+  max-width: 100px;
+  width: 100%;
+}
+
+.navigation-bar__login {
+  background: #01579B;
+    text-align: center;
+    color: #fff;
+    font-size: 20px;
+    padding: 20px;
+}
+.navigation-bar__login i {
+  font-size: 16px;
+}
