@@ -175,6 +175,7 @@ def add_absente(request, student_id):
     'laborator': 1,
     'seminar': 2
     }
+    import pdb; pdb.set_trace()
     for event in events:
         start = None
         end = None
@@ -184,10 +185,20 @@ def add_absente(request, student_id):
         if "end" in event:
             end = datetime.datetime.strptime(event["end"], "%Y-%m-%d %H:%M:%S")
         if "title" in event:
-            disc = disciplina_details[str(event["title"]).split(' ')[1]]
+            if "id" not in event:
+                disc = disciplina_details[str(event["title"]).split(' ')[1]]
+            else:
+                disc = disciplina_details[str(event["title"]).split('-')[1]]
         try:
-            absenta = Absente(student=User.objects.get(pk=student_id), start=start, end=end, materie=SchoolObject.objects.filter(profesor=request.user, disciplina=disc).first())
-            absenta.save()
+
+            if "id" in event:
+                absenta = Absente.objects.get(pk=event["id"])
+                absenta.start = datetime.datetime.strptime(event["start"], "%Y-%m-%d %H:%M:%S")
+                absenta.end = datetime.datetime.strptime(event["end"], "%Y-%m-%d %H:%M:%S")
+                absenta.save()
+            else:   
+                absenta = Absente(student=User.objects.get(pk=student_id), start=start, end=end, materie=SchoolObject.objects.filter(profesor=request.user, disciplina=disc).first())
+                absenta.save()
         except:
             pass
     return HttpResponse(status=200)
@@ -205,7 +216,7 @@ def get_absente(request, student_id):
         objects_absente.append(
             {"title": title, "start": absent.start.isoformat(),
             "end": absent.end.isoformat(), "backgroundColor": absent.materie.color,
-            "student_pk": absent.student.pk})
+            "student_pk": absent.student.pk, "id": absent.pk})
     return JsonResponse(objects_absente, safe=False)
 
 
