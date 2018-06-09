@@ -1,5 +1,5 @@
 {% extends "base.html" %} {% load staticfiles i18n %} {% block body-class %}{% endblock %} {% block container %}
-<div class="row calendar">
+<div class="calendar">
 	<p class="details">
 		<strong>Nume:</strong> {{student.first_name}} {{student.last_name}}</p>
 	<p class="details">
@@ -8,9 +8,9 @@
 		<strong>Email:</strong> {{student.email}}</p>
 </div>
 
-<div class="row section">
+<div class="section">
 	<div id='calendar'></div>
-	<button type="submit" form="nameform" value="Submit" onclick="AddAbsemta()" class="btn btn-primary">Submit</button>
+	<button type="submit" form="nameform" value="Submit" onclick="AddAbsemta()" class="btn btn-primary pull-right">Submit</button>
 	<div id="objects">
 		{% for school_obj in school_objects %}
 		<div class='draggable {{school_obj.get_disciplina_display}}' data-event='{"title":"{{school_obj.nume_obiect}} {{school_obj.get_disciplina_display}}" }'
