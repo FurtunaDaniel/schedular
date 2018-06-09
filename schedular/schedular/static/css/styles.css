@@ -1101,3 +1101,25 @@ select.selectpicker {
     flex-direction: column;
   }
 }
+
+/*MAIN PAGE PART WITH TABLE*/
+
+.table-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 1280px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.table-container h1 {
+  color: #183883;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.table-student td {
+  text-align: left;
+}

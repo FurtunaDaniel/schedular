@@ -10,19 +10,20 @@
 }                   
 </style>
 <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
-
+<div class="table-container">
   <h1>Situatie studenti:</h1>
   <div class="main-page">
-    <div class="table-responsive">
+    <div class="table-responsive table">
       <table class="table table-condensed table-striped">
         <tr>
-          <th>First name</th>
-          <th>Last name</th> 
-          <th>Personal Email</th>
-          <th>Action</th>
+          <th>Prenume</th>
+          <th>Nume</th> 
+          <th>Email</th>
+          <th>Nr Tel</th>
+          <th>Editare</th>
         </tr>
         {% for student in students%}
-          <tr>
+          <tr class="table-student">
             <td>{{student.first_name}}</td>
             <td>{{student.last_name}}</td>
             <td>{{student.email}}</td>
@@ -36,5 +37,6 @@
       </table>
     </div>  
   </div>
+</div>
 {% endblock container %}
 
