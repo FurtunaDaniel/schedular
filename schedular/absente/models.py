@@ -10,6 +10,11 @@ disciplina_details = (
     (2, ugettext_lazy('seminar'))
 )
 
+colors_details = (
+    (0, ugettext_lazy('#cc4646')),
+    (1, ugettext_lazy('#3b91ad')),
+    (2, ugettext_lazy('#3bcc91'))
+)
 
 class SchoolObject(models.Model):
     disciplina = models.IntegerField(choices=disciplina_details)
@@ -17,9 +22,10 @@ class SchoolObject(models.Model):
         max_length=40, null=True, blank=True,
         verbose_name=ugettext_lazy('Nume obiect'))
     profesor = models.ForeignKey(User)
-    color = models.CharField(
-        max_length=40, null=True, blank=True,
-        verbose_name=ugettext_lazy('Color'))
+    color = models.IntegerField(choices=colors_details, help_text="*Note: Curs->#cc4646 Laborator->#3b91ad  Seminar->#3bcc91")
+    # color = models.CharField(
+    #     max_length=40, null=True, blank=True,
+    #     verbose_name=ugettext_lazy('Color'))
 
     def __unicode__(self):
         return u"{0}".format(self.nume_obiect)
