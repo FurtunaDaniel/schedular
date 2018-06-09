@@ -3,11 +3,11 @@
 
 ### WIP Team ####
 
-### Schedular Prototype Design (invision)###
+### Schedular Prototype Design (invision) ###
  https://invis.io/KFHPP263PN9#/294229274_LoginForm
 *^Click/hover over clickable elements to see the application workflow.^
 
-### Schedular Final Design (invision)###
+### Schedular Final Design (invision) ###
 
 https://projects.invisionapp.com/share/QHKKKY0634P#/screens/302145854_LoginWithoutCredentials
 
