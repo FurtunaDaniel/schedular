@@ -1,116 +1,116 @@
-{% extends "base.html" %}
-{% load staticfiles i18n %}
-{% block body-class %}{% endblock %}
+{% extends "base.html" %} {% load staticfiles i18n %} {% block body-class %}{% endblock %} {% block container %}
+<div class="calendar">
+	<p class="details">
+		<strong>Nume:</strong> {{student.first_name}} {{student.last_name}}</p>
+	<p class="details">
+		<strong>Telefon:</strong> {{student.phone_number}}</p>
+	<p class="details">
+		<strong>Email:</strong> {{student.email}}</p>
+</div>
 
-{% block container %}
-	<p class="details"><strong>Nume:</strong> {{student.first_name}}  {{student.last_name}}</p>
-	<p class="details"><strong>Telefon:</strong> {{student.phone_number}}</p> 
-	<p class="details"><strong>Email:</strong> {{student.email}}</p>
+<div class="section">
+	<div id='calendar'></div>
+	<button type="submit" form="nameform" value="Submit" onclick="AddAbsemta()" class="btn btn-primary pull-right">Submit</button>
+	<div id="objects">
+		{% for school_obj in school_objects %}
+		<div class='draggable {{school_obj.get_disciplina_display}}' data-event='{"title":"{{school_obj.nume_obiect}} {{school_obj.get_disciplina_display}}" }'
+		  data-duration='02:00'>
+			<div>{{school_obj.nume_obiect}} {{school_obj.get_disciplina_display}}</div>
+		</div>
+		{% endfor %}
+	</div>
+</div>
 
-	  <div class="section">
-    <div id='calendar'></div>
-    <button type="submit" form="nameform" value="Submit" onclick="AddAbsemta()">Submit</button>
-    <div id="objects">
-      {% for school_obj in school_objects %}
-	      <div class='draggable {{school_obj.get_disciplina_display}}' data-event='{"title":"{{school_obj.nume_obiect}} {{school_obj.get_disciplina_display}}" }' data-duration='02:00'>
-	        <div>{{school_obj.nume_obiect}} {{school_obj.get_disciplina_display}}</div>
-	      </div>
-	  {% endfor %}
-    </div>
-  </div>
 
-  
-  <!--<div id="chartdiv"></div>-->
+<!--<div id="chartdiv"></div>-->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-	<script>
-	    $.ajax({
-	      type: 'GET',
-	      url: "{% url 'users:get_absente' student.pk%}",
-	      success: arrAbsence => {
-	    	$('#calendar').fullCalendar({
-		        header: {
-		          left: 'prev,next today',
-		          center: 'title',
-		          right: 'agendaWeek'
-		        },
-		        defaultView: 'agendaWeek',
-		        height: 'auto',
-		        editable: true,
-		        eventLimit: true, // allow "more" link when too many events
-		        firstDay: 1,
-		        _isUTC: true,
-		        minTime: '08:00',
-		        maxTime: '20:00',
-		        allDaySlot: false,
-		        weekends: false,
-		        defaultDate: '2017-05-12',
-		        businessHours: {
-		          start: '08:00',
-		          end: '20:00',
-		          dow: [1, 2, 3, 4, 5]
-		        },
-		        dayNames: ['Duminica', 'Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata'],
-		        dayNamesShort: ['Dum', 'Lun', 'Mar', 'Mie', 'Joi', 'Vin', 'Sam'],
-		        events: arrAbsence,
-		        eventRender: function(event, element) {
-		          console.log("adsad");
-		          element.append("<span class='closeon'>X</span>");
-		          element.find(".closeon").click(function() {
-		            $('#calendar').fullCalendar('removeEvents', event._id);
-		            console.log("asdsad");
-		          });
-		        },
-		        droppable: true
-	      });
-	    }
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
+<script>
+	$.ajax({
+		type: 'GET',
+		url: "{% url 'users:get_absente' student.pk%}",
+		success: arrAbsence => {
+			$('#calendar').fullCalendar({
+				header: {
+					left: 'prev,next today',
+					center: 'title',
+					right: 'agendaWeek'
+				},
+				defaultView: 'agendaWeek',
+				height: 'auto',
+				editable: true,
+				eventLimit: true, // allow "more" link when too many events
+				firstDay: 1,
+				_isUTC: true,
+				minTime: '08:00',
+				maxTime: '20:00',
+				allDaySlot: false,
+				weekends: false,
+				defaultDate: '2017-05-12',
+				businessHours: {
+					start: '08:00',
+					end: '20:00',
+					dow: [1, 2, 3, 4, 5]
+				},
+				dayNames: ['Duminica', 'Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata'],
+				dayNamesShort: ['Dum', 'Lun', 'Mar', 'Mie', 'Joi', 'Vin', 'Sam'],
+				events: arrAbsence,
+				eventRender: function (event, element) {
+					console.log("adsad");
+					element.append("<span class='closeon'>X</span>");
+					element.find(".closeon").click(function () {
+						$('#calendar').fullCalendar('removeEvents', event._id);
+						console.log("asdsad");
+					});
+				},
+				droppable: true
+			});
+		}
 	});
 
-	function AddAbsemta(){
-		eventsFromCalendar = $("#calendar").fullCalendar( 'clientEvents');
+	function AddAbsemta() {
+		eventsFromCalendar = $("#calendar").fullCalendar('clientEvents');
 		data = []
 		event_data = {}
-		console.log(eventsFromCalendar);
-		// debugger;
-		for (event=0; event < eventsFromCalendar.length; event++){
-			// if (!("student_pk" in eventsFromCalendar[event])){
-				event_data["start"] = eventsFromCalendar[event].start.format('YYYY-MM-DD HH:mm:ss');
-				event_data["end"] = eventsFromCalendar[event].end.format('YYYY-MM-DD HH:mm:ss');
-				event_data["title"] = eventsFromCalendar[event].title;
-				if(eventsFromCalendar[event].id !== undefined){
-					event_data["id"] = eventsFromCalendar[event].id;
-				}
-				data.push(event_data);
-				event_data = {}
-			// }
+		for (event = 0; event < eventsFromCalendar.length; event++) {
+			event_data["start"] = eventsFromCalendar[event].start.format('YYYY-MM-DD HH:mm:ss');
+			event_data["end"] = eventsFromCalendar[event].end.format('YYYY-MM-DD HH:mm:ss');
+			event_data["title"] = eventsFromCalendar[event].title;
+			if (eventsFromCalendar[event].id !== undefined) {
+				event_data["id"] = eventsFromCalendar[event].id;
+			}
+			data.push(event_data);
+			event_data = {}
+
 		}
-		debugger;
 		$.ajax({
-	      type: 'POST',
-	      url: "{% url 'users:add_absente' student.pk%}",
-	      data: { eventsJson: JSON.stringify(data),
-	      		csrfmiddlewaretoken: '{{ csrf_token }}'},
-	      success: data => {
-			location.reload();	
-	    }
-	});
+			type: 'POST',
+			url: "{% url 'users:add_absente' student.pk%}",
+			data: {
+				eventsJson: JSON.stringify(data),
+				csrfmiddlewaretoken: '{{ csrf_token }}'
+			},
+			success: data => {
+				location.reload();
+			}
+		});
 
 	}
 
-		$('.draggable').draggable({
-		stop: function(event, ui) {
-		  $(this).css({
-		    "left": "0",
-		    "top": "0"
-		  });
+	$('.draggable').draggable({
+		stop: function (event, ui) {
+			$(this).css({
+				"left": "0",
+				"top": "0"
+			});
 		}
-		});
-		$("#students").on("changed.bs.select", function(e, clickedIndex, newValue, oldValue) {
+	});
+	$("#students").on("changed.bs.select", function (e, clickedIndex, newValue, oldValue) {
 		arrAbsence.push({
-		  title: 'Vatavu-Palg-laborator',
-		  start: '2017-05-11T10:00:00',
-		  end: '2017-05-11T12:00:00',
-		  backgroundColor: '#3a87ad'
+			title: 'Vatavu-Palg-laborator',
+			start: '2017-05-11T10:00:00',
+			end: '2017-05-11T12:00:00',
+			backgroundColor: '#3a87ad'
 		});
 		// console.log(arrAbsence);
 		$('#calendar').fullCalendar('removeEvents');
@@ -119,7 +119,7 @@
 		// $('#calendar').fullCalendar('render');
 		var selectedD = $(this).find('option').eq(clickedIndex).text();
 		console.log(selectedD);
-		});
-	</script>
+	});
+</script>
 
 {% endblock container %}
