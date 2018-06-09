@@ -5,12 +5,6 @@ from django.db import models
 from django.utils.translation import ugettext_lazy
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
-PROGRAM_STUDY = (
-    (0, ugettext_lazy('Licenta')),
-    (1, ugettext_lazy('Masterat'))
-)
-
-
 class UserManager(BaseUserManager):
     def create_user(self, username, password=None, **extra_fields):
         user = self.model(

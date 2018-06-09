@@ -29,7 +29,8 @@
         <form method="POST" action="{% url 'users:send_email' %}">
           <div>
           {% csrf_token %}
-            <textarea name="email_body" style="width: 100%;height: 200px;"></textarea>
+            <textarea name="subject" style="width: 100%;height: 200px;"></textarea>
+            <input type="hidden" id="email_prof" name="email_prof" value="">
           </div>
           <div class="text-center" style="margin-top:15px">
           <button type="submit" class="btn btn-primary" style="font-size:19px">Send</button></div>
@@ -73,7 +74,9 @@ $.ajax({
       dayNamesShort: ['Dum', 'Lun', 'Mar', 'Mie', 'Joi', 'Vin', 'Sam'],
       events: arrAbsence,
       eventClick: function(calEvent, jsEvent, view) {
+        console.log(calEvent);
         $("#myModal").modal();
+        $("#email_prof").val(calEvent.email_prof);
       },
       droppable: true
     });

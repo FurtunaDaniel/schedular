@@ -235,7 +235,7 @@ def get_absente_student(request, student_id):
     objects_absente = []
     absente = Absente.objects.filter(
         student__id=student_id)
-
+    # import pdb; pdb.set_trace()
     for absent in absente:
         title = "{} {}-{}-{}".format(
             absent.materie.profesor.first_name, absent.materie.profesor.last_name,
@@ -243,7 +243,7 @@ def get_absente_student(request, student_id):
         objects_absente.append(
             {"title": title, "start": absent.start.isoformat(),
             "end": absent.end.isoformat(), "backgroundColor": absent.materie.color,
-            "student_pk": absent.student.pk})
+            "student_pk": absent.student.pk, "email_prof":absent.materie.profesor.email})
     return JsonResponse(objects_absente, safe=False)
 
 
@@ -252,3 +252,18 @@ def students(request):
     return render(request, 'users/about_students.html', {
         'students': User.objects.filter(is_student=True),
     })
+
+# def send_email(subject, receiver, email_template_name, context={}):
+#     html_content = loader.render_to_string(email_template_name, context)
+#     import pdb; pdb.set_trace()
+#     if not receiver:
+#         return
+
+#     if isinstance(receiver, basestring):
+#         to = [receiver]
+#         send_mail(subject, html_content, "contact@usv.com", to, fail_silently=False)
+#     else:
+#         to = receiver
+#         for t in to:
+#             dest = [t]
+#             send_mail(subject, html_content, "contact@usv.com", dest, fail_silently=False)
