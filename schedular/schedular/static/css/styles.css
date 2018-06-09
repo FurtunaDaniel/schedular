@@ -1105,3 +1105,7 @@ select.selectpicker {
   font-weight: bold;
   color: #333;
 }
+
+.team-content {
+  margin-top: 140px;
+}

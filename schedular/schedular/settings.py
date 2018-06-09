@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'bootstrapform',
     'users',
     'absente',
+    'team'
 ]
 
 MIDDLEWARE = [
