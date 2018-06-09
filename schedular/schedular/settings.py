@@ -113,7 +113,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'cariere.studenti@gmail.com'
+EMAIL_HOST_USER = 'student.usv1@gmail.com'
 EMAIL_HOST_PASSWORD = 'Anaaremere1'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
