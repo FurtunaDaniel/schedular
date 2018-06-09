@@ -75,7 +75,12 @@ body {
   align-items: center;
 }
 
-a, #nav li.selected a, #nav li a:hover, #docs-index-content li a:hover, #docs-page .sidebar li.selected a, #docs-page .sidebar a:hover {
+a,
+#nav li.selected a,
+#nav li a:hover,
+#docs-index-content li a:hover,
+#docs-page .sidebar li.selected a,
+#docs-page .sidebar a:hover {
   color: #1197C1;
   /* light blue link color */
 }
@@ -106,7 +111,8 @@ a, #nav li.selected a, #nav li a:hover, #docs-index-content li a:hover, #docs-pa
   border-color: rgb(255, 228, 138);
 }
 
-pre, code {
+pre,
+code {
   background: #f2f2f2;
   border-color: #ddd;
 }
@@ -157,15 +163,23 @@ p {
   margin-bottom: 0;
 }
 
-#banner p a, #body a:hover, #foot a:hover {
+#banner p a,
+#body a:hover,
+#foot a:hover {
   text-decoration: underline;
 }
 
-b, strong {
+b,
+strong {
   font-weight: 700;
 }
 
-h1, h2, h3, h4, h5, th {
+h1,
+h2,
+h3,
+h4,
+h5,
+th {
   font-weight: 400;
 }
 
@@ -181,7 +195,8 @@ h4 {
   font-size: 16px;
 }
 
-code, .spec {
+code,
+.spec {
   font-family: Monaco, Consolas, "Lucida Console", monospace;
   font-size: .8em;
 }
@@ -267,7 +282,10 @@ code, .spec {
   margin-bottom: 39px;
 }
 
-#foot h3, #foot ul, #foot li, #foot p {
+#foot h3,
+#foot ul,
+#foot li,
+#foot p {
   margin: 1em 0;
   font-size: 14px;
   line-height: 1.5em;
@@ -277,7 +295,8 @@ code, .spec {
   text-align: right;
 }
 
-#foot>div>.left, #foot>div>.right {
+#foot>div>.left,
+#foot>div>.right {
   margin: -1em 0;
   /* combat margins+floating */
 }
@@ -340,7 +359,8 @@ code, .spec {
   border-spacing: 0;
 }
 
-.two-col>.content, .two-col>.sidebar {
+.two-col>.content,
+.two-col>.sidebar {
   display: table-cell;
   vertical-align: top;
 }
@@ -384,7 +404,8 @@ code, .spec {
   margin-top: 1em;
 }
 
-#index-page .larger-link-wrap, #index-page .sidebar ul {
+#index-page .larger-link-wrap,
+#index-page .sidebar ul {
   font-size: 14px;
 }
 
@@ -440,7 +461,8 @@ code, .spec {
 /* common
 --------------------------------------------------------------------------------------------------*/
 
-.button--primary, .button--affirmative {
+.button--primary,
+.button--affirmative {
   box-sizing: border-box;
   display: inline-block;
   height: 40px;
@@ -457,7 +479,8 @@ code, .spec {
   width: 100%;
 }
 
-.button--primary:hover, .button--affirmative:hover {
+.button--primary:hover,
+.button--affirmative:hover {
   text-decoration: underline;
 }
 
@@ -561,7 +584,8 @@ code, .spec {
 
 /* Bootstrap select */
 
-select.bs-select-hidden, select.selectpicker {
+select.bs-select-hidden,
+select.selectpicker {
   display: none !important;
 }
 
@@ -576,7 +600,10 @@ select.bs-select-hidden, select.selectpicker {
   z-index: 1;
 }
 
-.bootstrap-select>.dropdown-toggle.bs-placeholder, .bootstrap-select>.dropdown-toggle.bs-placeholder:hover, .bootstrap-select>.dropdown-toggle.bs-placeholder:focus, .bootstrap-select>.dropdown-toggle.bs-placeholder:active {
+.bootstrap-select>.dropdown-toggle.bs-placeholder,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:hover,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:focus,
+.bootstrap-select>.dropdown-toggle.bs-placeholder:active {
   color: #999;
 }
 
@@ -600,7 +627,8 @@ select.bs-select-hidden, select.selectpicker {
   z-index: 2;
 }
 
-.has-error .bootstrap-select .dropdown-toggle, .error .bootstrap-select .dropdown-toggle {
+.has-error .bootstrap-select .dropdown-toggle,
+.error .bootstrap-select .dropdown-toggle {
   border-color: #b94a48;
 }
 
@@ -636,25 +664,32 @@ select.bs-select-hidden, select.selectpicker {
   border-radius: 0;
 }
 
-.bootstrap-select.btn-group:not(.input-group-btn), .bootstrap-select.btn-group[class*="col-"] {
+.bootstrap-select.btn-group:not(.input-group-btn),
+.bootstrap-select.btn-group[class*="col-"] {
   float: none;
   display: inline-block;
   margin-left: 0;
 }
 
-.bootstrap-select.btn-group.dropdown-menu-right, .bootstrap-select.btn-group[class*="col-"].dropdown-menu-right, .row .bootstrap-select.btn-group[class*="col-"].dropdown-menu-right {
+.bootstrap-select.btn-group.dropdown-menu-right,
+.bootstrap-select.btn-group[class*="col-"].dropdown-menu-right,
+.row .bootstrap-select.btn-group[class*="col-"].dropdown-menu-right {
   float: right;
 }
 
-.form-inline .bootstrap-select.btn-group, .form-horizontal .bootstrap-select.btn-group, .form-group .bootstrap-select.btn-group {
+.form-inline .bootstrap-select.btn-group,
+.form-horizontal .bootstrap-select.btn-group,
+.form-group .bootstrap-select.btn-group {
   margin-bottom: 0;
 }
 
-.form-group-lg .bootstrap-select.btn-group.form-control, .form-group-sm .bootstrap-select.btn-group.form-control {
+.form-group-lg .bootstrap-select.btn-group.form-control,
+.form-group-sm .bootstrap-select.btn-group.form-control {
   padding: 0;
 }
 
-.form-group-lg .bootstrap-select.btn-group.form-control .dropdown-toggle, .form-group-sm .bootstrap-select.btn-group.form-control .dropdown-toggle {
+.form-group-lg .bootstrap-select.btn-group.form-control .dropdown-toggle,
+.form-group-sm .bootstrap-select.btn-group.form-control .dropdown-toggle {
   height: 100%;
   font-size: inherit;
   line-height: inherit;
@@ -665,11 +700,13 @@ select.bs-select-hidden, select.selectpicker {
   width: 100%;
 }
 
-.bootstrap-select.btn-group.disabled, .bootstrap-select.btn-group>.disabled {
+.bootstrap-select.btn-group.disabled,
+.bootstrap-select.btn-group>.disabled {
   cursor: not-allowed;
 }
 
-.bootstrap-select.btn-group.disabled:focus, .bootstrap-select.btn-group>.disabled:focus {
+.bootstrap-select.btn-group.disabled:focus,
+.bootstrap-select.btn-group>.disabled:focus {
   outline: none !important;
 }
 
@@ -849,11 +886,14 @@ select.bs-select-hidden, select.selectpicker {
   left: auto;
 }
 
-.bootstrap-select.show-menu-arrow.open>.dropdown-toggle:before, .bootstrap-select.show-menu-arrow.open>.dropdown-toggle:after {
+.bootstrap-select.show-menu-arrow.open>.dropdown-toggle:before,
+.bootstrap-select.show-menu-arrow.open>.dropdown-toggle:after {
   display: block;
 }
 
-.bs-searchbox, .bs-actionsbox, .bs-donebutton {
+.bs-searchbox,
+.bs-actionsbox,
+.bs-donebutton {
   padding: 4px 8px;
 }
 

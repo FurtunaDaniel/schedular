@@ -1,7 +1,7 @@
 {% extends "base.html" %} {% load i18n bootstrap %} {% block body-class %}{% endblock body-class %} {% block container %}
 
 <div class="main-page">
-	<form method="post" class="form-horizontal">
+	<form method="post" class="form-horizontal" novalidate>
 		{% csrf_token %}
 		<div class="form-group">
 			<label class="control-label col-sm-2" for="first_name">First Name:</label>
