@@ -176,10 +176,12 @@ def add_absente(request, student_id):
     'seminar': 2
     }
     ids = []
+    import pdb; pdb.set_trace()
     for event in events:
         start = None
         end = None
         disc = None
+        nume_obiect = None
         if "start" in event:
             start = datetime.datetime.strptime(event["start"], "%Y-%m-%d %H:%M:%S")
         if "end" in event:
@@ -187,24 +189,25 @@ def add_absente(request, student_id):
         if "title" in event:
             if "id" not in event:
                 disc = disciplina_details[str(event["title"]).split(' ')[1]]
+                nume_obiect = str(event["title"]).split(' ')[0]
             else:
                 ids.append(event["id"])
                 disc = disciplina_details[str(event["title"]).split('-')[1]]
         try:
-
             if "id" in event:
                 absenta = Absente.objects.get(pk=event["id"])
                 absenta.start = datetime.datetime.strptime(event["start"], "%Y-%m-%d %H:%M:%S")
                 absenta.end = datetime.datetime.strptime(event["end"], "%Y-%m-%d %H:%M:%S")
                 absenta.save()
             else:   
-                absenta = Absente(student=User.objects.get(pk=student_id), start=start, end=end, materie=SchoolObject.objects.filter(profesor=request.user, disciplina=disc).first())
+                absenta = Absente(student=User.objects.get(pk=student_id), start=start, end=end, materie=SchoolObject.objects.filter(profesor=request.user, disciplina=disc, nume_obiect=nume_obiect).first())
                 absenta.save()
+                ids.append(absenta.pk)
         except:
             pass
     absente = Absente.objects.filter(
             student__id=student_id, materie__profesor=request.user)
-    
+
     for absent in absente:
         if absent.pk not in ids:
             absent.delete();
