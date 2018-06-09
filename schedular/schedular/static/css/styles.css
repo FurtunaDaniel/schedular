@@ -1123,3 +1123,12 @@ select.selectpicker {
 .table-student td {
   text-align: left;
 }
+
+.table-head {
+  background-color: #83dcfd !important;
+}
+
+.table-head th {
+  font-weight: bold;
+  color: #333;
+}
