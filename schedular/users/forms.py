@@ -100,8 +100,7 @@ class UserEditForm(forms.ModelForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'email', 'username',
-                  'address', 'phone_number', 'CNP',
-                  'second_email', 'date', 'graduation')
+                  'address', 'phone_number', 'CNP')
 
     def clean(self):
         cleaned_data = super(UserEditForm, self).clean()

@@ -53,12 +53,6 @@ class User(AbstractBaseUser):
         max_length=25, blank=True, verbose_name=ugettext_lazy('phone number'))
     CNP = models.CharField(
         max_length=25, blank=True, verbose_name=ugettext_lazy('CNP'))
-    second_email = models.EmailField(
-        max_length=255, unique=True, db_index=True, null=True, blank=True,
-        verbose_name=ugettext_lazy('second email address'))
-    date = models.DateField(null=True, blank=True)
-    graduation = models.DateField(null=True, blank=True)
-    date_joined = models.DateTimeField(auto_now_add=True)
     is_student = models.BooleanField(default=False)
     is_teacher = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)

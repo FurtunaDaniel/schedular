@@ -19,7 +19,6 @@ from django.http import HttpResponse
 
 
 def login(request):
-    import pdb;
     if request.POST:
         form = LoginForm(data=request.POST)
         if form.is_valid():
