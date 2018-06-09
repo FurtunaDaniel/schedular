@@ -175,7 +175,7 @@ def add_absente(request, student_id):
     'laborator': 1,
     'seminar': 2
     }
-    import pdb; pdb.set_trace()
+    ids = []
     for event in events:
         start = None
         end = None
@@ -188,6 +188,7 @@ def add_absente(request, student_id):
             if "id" not in event:
                 disc = disciplina_details[str(event["title"]).split(' ')[1]]
             else:
+                ids.append(event["id"])
                 disc = disciplina_details[str(event["title"]).split('-')[1]]
         try:
 
@@ -201,6 +202,13 @@ def add_absente(request, student_id):
                 absenta.save()
         except:
             pass
+    absente = Absente.objects.filter(
+            student__id=student_id, materie__profesor=request.user)
+    
+    for absent in absente:
+        if absent.pk not in ids:
+            absent.delete();
+
     return HttpResponse(status=200)
 
 
