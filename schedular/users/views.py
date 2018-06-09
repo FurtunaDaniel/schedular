@@ -168,7 +168,7 @@ def student_absente(request, student_id):
 
 def add_absente(request, student_id):
     import json
-    
+
     events = json.loads(request.POST["eventsJson"])
     disciplina_details = {
     'curs': 0,
@@ -176,7 +176,7 @@ def add_absente(request, student_id):
     'seminar': 2
     }
     ids = []
-    import pdb; pdb.set_trace()
+
     for event in events:
         start = None
         end = None
@@ -199,7 +199,7 @@ def add_absente(request, student_id):
                 absenta.start = datetime.datetime.strptime(event["start"], "%Y-%m-%d %H:%M:%S")
                 absenta.end = datetime.datetime.strptime(event["end"], "%Y-%m-%d %H:%M:%S")
                 absenta.save()
-            else:   
+            else:
                 absenta = Absente(student=User.objects.get(pk=student_id), start=start, end=end, materie=SchoolObject.objects.filter(profesor=request.user, disciplina=disc, nume_obiect=nume_obiect).first())
                 absenta.save()
                 ids.append(absenta.pk)

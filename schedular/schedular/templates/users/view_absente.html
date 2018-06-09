@@ -76,7 +76,9 @@
 			event_data["start"] = eventsFromCalendar[event].start.format('YYYY-MM-DD HH:mm:ss');
 			event_data["end"] = eventsFromCalendar[event].end.format('YYYY-MM-DD HH:mm:ss');
 			event_data["title"] = eventsFromCalendar[event].title;
-			event_data["id"] = eventsFromCalendar[event].id;
+			if (eventsFromCalendar[event].id !== undefined) {
+				event_data["id"] = eventsFromCalendar[event].id;
+			}
 			data.push(event_data);
 			event_data = {}
 
