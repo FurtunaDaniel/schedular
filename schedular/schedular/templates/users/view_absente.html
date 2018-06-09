@@ -70,16 +70,19 @@
 		eventsFromCalendar = $("#calendar").fullCalendar( 'clientEvents');
 		data = []
 		event_data = {}
-
+		console.log(eventsFromCalendar);
+		// debugger;
 		for (event=0; event < eventsFromCalendar.length; event++){
-			if (!("student_pk" in eventsFromCalendar[event])){
+			// if (!("student_pk" in eventsFromCalendar[event])){
 				event_data["start"] = eventsFromCalendar[event].start.format('YYYY-MM-DD HH:mm:ss');
 				event_data["end"] = eventsFromCalendar[event].end.format('YYYY-MM-DD HH:mm:ss');
 				event_data["title"] = eventsFromCalendar[event].title;
+				event_data["id"] = eventsFromCalendar[event].id;
 				data.push(event_data);
 				event_data = {}
-			}
+			// }
 		}
+		debugger;
 		$.ajax({
 	      type: 'POST',
 	      url: "{% url 'users:add_absente' student.pk%}",
