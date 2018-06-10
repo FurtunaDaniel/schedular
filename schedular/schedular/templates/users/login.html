@@ -15,7 +15,7 @@
         <div class="login-page">
             <div class ="login-page__title" >Login</div>
             <form method="post" class="login-page__form-signin">
-                
+
                 {% csrf_token %}
                 <div class="login-page__inputs">
                     <div class="login__input-field">
@@ -30,9 +30,9 @@
                         <button class="btn btn-primary btn-slide btn-slide--lg login-page__btn" type="submit">
                             {% trans "Login" %}
                         </button>
-                        <a href="" class="login-page__forgot">
+                        <!-- <a href="" class="login-page__forgot">
                             {% trans "Forgot password?" %}
-                        </a>                        
+                        </a>                         -->
                     </div>
 
                 </div>

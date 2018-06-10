@@ -7,13 +7,13 @@ from django.shortcuts import render
 
 def send_email(request, context={}):
     # html_content = loader.render_to_string("emails/add-user.html", context)
-    receiver = "soiman.andrei@yahoo.com"
-    if not receiver:
-        return
+    # receiver = "soiman.andrei@yahoo.com"
+    # if not receiver:
+    #     return
     form = EmailForm(request.POST)
     subject = form.data['subject'];
     email = form.data['email_prof'];
-    to = [receiver]
+    to = [email]
     send_mail("Probleme Absente", subject, email, to, fail_silently=False)
     return render(request, "users/student_details.html", {
         "student": request.user
