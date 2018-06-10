@@ -7,12 +7,24 @@
   </div>
   <div class="col-md-8 col-sm-4 col-xs-12">
     <div class="main-page">
-      <p>{% trans 'First name' %}: <span class="text-muted">{{student.first_name}}</span></p>
-      <p>{% trans 'Last name' %}: <span class="text-muted">{{student.last_name}}</span></p>
-      <p>{% trans 'CNP' %}: <span class="text-muted">{{student.CNP}}</span></p>
-      <p>{% trans 'E-mail address' %}: <span class="text-muted">{{student.email}}</span></p>
-      <p>{% trans 'Address' %}: <span class="text-muted">{{student.address}}</span></p>
-      <p>{% trans 'Phone number' %}: <span class="text-muted">{{student.phone_number}}</span></p>
+      <p>{% trans 'First name' %}:
+        <span class="text-muted">{{student.first_name}}</span>
+      </p>
+      <p>{% trans 'Last name' %}:
+        <span class="text-muted">{{student.last_name}}</span>
+      </p>
+      <p>{% trans 'CNP' %}:
+        <span class="text-muted">{{student.CNP}}</span>
+      </p>
+      <p>{% trans 'E-mail address' %}:
+        <span class="text-muted">{{student.email}}</span>
+      </p>
+      <p>{% trans 'Address' %}:
+        <span class="text-muted">{{student.address}}</span>
+      </p>
+      <p>{% trans 'Phone number' %}:
+        <span class="text-muted">{{student.phone_number}}</span>
+      </p>
     </div>
   </div>
 </div>
@@ -28,12 +40,13 @@
       <div class="modal-body">
         <form method="POST" action="{% url 'users:send_email' %}">
           <div>
-          {% csrf_token %}
+            {% csrf_token %}
             <textarea name="subject" style="width: 100%;height: 200px;"></textarea>
             <input type="hidden" id="email_prof" name="email_prof" value="">
           </div>
           <div class="text-center" style="margin-top:15px">
-          <button type="submit" class="btn btn-primary" style="font-size:19px">Send</button></div>
+            <button type="submit" class="btn btn-primary" style="font-size:19px">Send</button>
+          </div>
         </form>
       </div>
       <div class="modal-footer">
@@ -44,69 +57,68 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
 <script>
-$.ajax({
-  type: 'GET',
-  url: "{% url 'users:add_absente_student' student.pk%}",
-  success: arrAbsence => {
-    $('#calendar').fullCalendar({
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'agendaWeek'
-      },
-      defaultView: 'agendaWeek',
-      height: 'auto',
-      editable: false,
-      eventLimit: true, // allow "more" link when too many events
-      firstDay: 1,
-      _isUTC: true,
-      minTime: '08:00',
-      maxTime: '20:00',
-      allDaySlot: false,
-      weekends: false,
-      defaultDate: '2017-05-12',
-      businessHours: {
-        start: '08:00',
-        end: '20:00',
-        dow: [1, 2, 3, 4, 5]
-      },
-      dayNames: ['Duminica', 'Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata'],
-      dayNamesShort: ['Dum', 'Lun', 'Mar', 'Mie', 'Joi', 'Vin', 'Sam'],
-      events: arrAbsence,
-      eventClick: function(calEvent, jsEvent, view) {
-        console.log(calEvent);
-        $("#myModal").modal();
-        $("#email_prof").val(calEvent.email_prof);
-      },
-      droppable: true
-    });
-  }
-});
-
-$('.draggable').draggable({
-  stop: function(event, ui) {
-    $(this).css({
-      "left": "0",
-      "top": "0"
-    });
-  }
-});
-$("#students").on("changed.bs.select", function(e, clickedIndex, newValue, oldValue) {
-  debugger;
-  arrAbsence.push({
-    title: 'Vatavu-Palg-laborator',
-    start: '2017-05-11T10:00:00',
-    end: '2017-05-11T12:00:00',
-    backgroundColor: '#3a87ad'
+  $.ajax({
+    type: 'GET',
+    url: "{% url 'users:add_absente_student' student.pk%}",
+    success: arrAbsence => {
+      $('#calendar').fullCalendar({
+        header: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'agendaWeek'
+        },
+        defaultView: 'agendaWeek',
+        height: 'auto',
+        editable: false,
+        eventLimit: true, // allow "more" link when too many events
+        firstDay: 1,
+        _isUTC: true,
+        minTime: '08:00',
+        maxTime: '20:00',
+        allDaySlot: false,
+        weekends: false,
+        defaultDate: '2018-06-10',
+        businessHours: {
+          start: '08:00',
+          end: '20:00',
+          dow: [0, 1, 2, 3, 4, 5, 6]
+        },
+        dayNames: ['Duminica', 'Luni', 'Marti', 'Miercuri', 'Joi', 'Vineri', 'Sambata'],
+        dayNamesShort: ['Dum', 'Lun', 'Mar', 'Mie', 'Joi', 'Vin', 'Sam'],
+        events: arrAbsence,
+        eventClick: function (calEvent, jsEvent, view) {
+          console.log(calEvent);
+          $("#myModal").modal();
+          $("#email_prof").val(calEvent.email_prof);
+        },
+        droppable: true
+      });
+    }
   });
-  // console.log(arrAbsence);
-  $('#calendar').fullCalendar('removeEvents');
-  $('#calendar').fullCalendar('addEventSource', arrAbsence);
-  console.log($('#calendar').fullCalendar('clientEvents'));
-  // $('#calendar').fullCalendar('render');
-  var selectedD = $(this).find('option').eq(clickedIndex).text();
-  console.log(selectedD);
-});
+
+  $('.draggable').draggable({
+    stop: function (event, ui) {
+      $(this).css({
+        "left": "0",
+        "top": "0"
+      });
+    }
+  });
+  $("#students").on("changed.bs.select", function (e, clickedIndex, newValue, oldValue) {
+    debugger;
+    arrAbsence.push({
+      title: 'Vatavu-Palg-laborator',
+      start: '2017-05-11T10:00:00',
+      end: '2017-05-11T12:00:00',
+      backgroundColor: '#3a87ad'
+    });
+    // console.log(arrAbsence);
+    $('#calendar').fullCalendar('removeEvents');
+    $('#calendar').fullCalendar('addEventSource', arrAbsence);
+    console.log($('#calendar').fullCalendar('clientEvents'));
+    // $('#calendar').fullCalendar('render');
+    var selectedD = $(this).find('option').eq(clickedIndex).text();
+    console.log(selectedD);
+  });
 </script>
-{% endblock container %}
-Add Comment
+{% endblock container %} Add Comment

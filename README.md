@@ -5,7 +5,7 @@
 
 ### Schedular Prototype Design (invision) ###
  https://invis.io/KFHPP263PN9#/294229274_LoginForm
-*^Click/hover over clickable elements to see the application workflow.^
+
 
 ### Schedular Final Design (invision) ###
 
@@ -116,6 +116,10 @@ Important note!: Please use your crdential and database!!!
 ```
 
 * Run the Server
+
+```
+./manage.py runserver
+```
 
 If in your console doesn't appear:
 ```
